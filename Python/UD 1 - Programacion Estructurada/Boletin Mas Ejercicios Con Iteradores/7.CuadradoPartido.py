@@ -1,8 +1,8 @@
 numero = int(input("Dame un numero: "))
 
-for i in range(1, numero+1):
+for i in range(numero):
 
-    if i == 1 or i == numero:
+    if i % 2 == 0:
         print("*" + "#" * (numero-2) + "*")
     
     else:
