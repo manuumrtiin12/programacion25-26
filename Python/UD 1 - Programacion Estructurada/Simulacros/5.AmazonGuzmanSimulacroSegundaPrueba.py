@@ -25,37 +25,57 @@ while eleccion_menu != "G":
                 print("Error. Introduce S o N.")
                 status = input("¿El cliente es VIP? S/N: ").upper()
 
-            
+ 
             correo = input("Introduce el correo del cliente: ")
             listaCorreos.append(correo)
             contadorClientes += 1
+
             if status == "S":
                 contadorClientesVIP += 1
                 print("El cliente es VIP")
             else:
                 print("El cliente no es VIP")
 
-            
             continuar = input("¿Quieres seguir añadiendo? S/N: ").upper()
             while continuar != "S" and continuar != "N":
                 print("Error. Introduce S o N.")
                 continuar = input("¿Quieres seguir añadiendo? S/N: ").upper()
-    
+
     elif eleccion_menu == "V": 
         listaCorreosInvalidos = []
+        listaCorreosValidos = []
 
         for correo in listaCorreos:
             if "@" in correo:
-                partes = correo.split('@')
-                dominio = partes[1]  
-                if "." not in dominio:
+                partes = correo.split("@")
+                if len(partes) == 2:
+                    dominio = partes[1]
+                    if "." in dominio:
+                        listaCorreosValidos.append(correo)
+                    else:
+                        listaCorreosInvalidos.append(correo)
+                else:
                     listaCorreosInvalidos.append(correo)
             else:
                 listaCorreosInvalidos.append(correo)
 
-            print(f"Cantidad de correos inválidos: {len(listaCorreosInvalidos)}")
-            print(f"Los correos inválidos son: {listaCorreosInvalidos}")
-            print(f"Los correos válidos son: {listaCorreos}")
+        print(f"Cantidad de correos inválidos: {len(listaCorreosInvalidos)}")
+        print(f"Los correos inválidos son: {listaCorreosInvalidos}")
+        print(f"Los correos válidos son: {listaCorreosValidos}")
 
-            volver = input("¿Desea volver?: ")
-                    
+        volver = input("¿Desea volver?: ").upper()
+        while volver != "S" and volver != "N":
+            print("Error. Introduce S o N.")
+            volver = input("¿Desea volver?: ").upper()
+
+    elif eleccion_menu == "C":
+        dominio = input("¿Cual es el dominio que quieres buscar?: ")
+        contador = 0
+
+        for cliente in listaCorreos:
+            partes = cliente.split("@")
+            if len(partes) == 2 and partes[1].find(dominio) > -1:
+                contador += 1
+            print(f"El numero de clientes con ese dominio es: {contador }")
+            
+         
