@@ -30,18 +30,16 @@ def getDiagonalDificil(matriz):
     return diagonalDificil
 
 def sumaDiagonal(esPrincipal, diagonalFacil, diagonalDificil):
-
     suma = 0
+    
     if esPrincipal == True:
-        getDiagonalFacil(matriz)
-
+        
         for i in range(len(diagonalFacil)):
             suma += diagonalFacil[i]
         
         return suma
     
     elif esPrincipal == False:
-        getDiagonalDificil(matriz)
 
         for i in range(len(diagonalDificil)):
             suma += diagonalDificil[i]
