@@ -12,8 +12,8 @@ def getDiagonalFacil(matriz):
     for i in range(0, len(matriz)):
         diagonalFacil.append(matriz[fila][columna])
 
-        fila += 1
-        columna += 1
+        fila =fila+ 1
+        columna =columna+ 1
 
     return diagonalFacil
 
@@ -25,29 +25,23 @@ def getDiagonalDificil(matriz):
 
     for fila in range(0, len(matriz)):
         diagonalDificil.append(matriz[fila][columna])
-        columna -= 1
+        columna = columna- 1
         
     return diagonalDificil
 
-def sumaDiagonal(esPrincipal, diagonalFacil, diagonalDificil):
+def sumaDiagonal(esPrincipal, matriz):
     suma = 0
     
-    if esPrincipal == True:
-        
-        for i in range(len(diagonalFacil)):
-            suma += diagonalFacil[i]
-        
-        return suma
-    
-    elif esPrincipal == False:
-
-        for i in range(len(diagonalDificil)):
-            suma += diagonalDificil[i]
-        
-        return suma
+    if esPrincipal:
+        diagonal=getDiagonalFacil(matriz)    
+    else:
+        diagonal=getDiagonalDificil(matriz)
+    for elemento in diagonal:
+        suma=suma+elemento    
+    return suma
 
 resultadoDiagonalFacil = getDiagonalFacil(matriz)
 resultadoDiagonalDificil = getDiagonalDificil(matriz)
 
-print(f"El resultado es {sumaDiagonal(True, resultadoDiagonalFacil, resultadoDiagonalDificil)}")
-print(f"El resultado es {sumaDiagonal(False, resultadoDiagonalFacil, resultadoDiagonalDificil)}")
+print(f"El resultado es {sumaDiagonal(True, matriz)}")
+print(f"El resultado es {sumaDiagonal(False, matriz)}")
