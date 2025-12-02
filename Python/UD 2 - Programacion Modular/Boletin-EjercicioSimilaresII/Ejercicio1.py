@@ -27,7 +27,7 @@ def main():
     num2 = valida(num1, num2)
     suma = sumaDigitos(num1, num2)
 
-    print("La suma de los digitos es: ", suma)
+    print(f"La suma de los digitos es: {suma}")
 
 main()
 
