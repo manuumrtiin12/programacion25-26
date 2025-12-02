@@ -66,6 +66,26 @@ def getProductosDestacados(ventas):
     return listaProductosDestacados
 
 
+def tieneMayorIngreso(nombreProducto1, nombreProducto2):
+    nombreProducto1 = calculaIngreso(ventas, nombreProducto1)
+    nombreProducto2 = calculaIngreso(ventas, nombreProducto2)
+
+    if nombreProducto1 > nombreProducto2:
+        return True
+    
+    else:
+        return False
+
+def calculaIngresosTotal(ventas):
+    totalGanancias = 0
+
+    for i in range(len(ventas)):
+        producto = calculaIngreso(ventas, ventas[i][0])
+
+        totalGanancias += producto
+    
+    return totalGanancias
+
 
 resultado1 = calculaIngreso(ventas, "Portátil")
 print(resultado1)
@@ -78,3 +98,15 @@ print(resultado3)
 
 resultado4 = getProductosDestacados(ventas)
 print(resultado4)
+
+resultado5 = tieneMayorIngreso("Smartphone", "Portátil")
+print(resultado5)
+assert tieneMayorIngreso("Smartphone", "Portátil") == True
+
+resultado6 = tieneMayorIngreso("Smartphone", "Portátil")
+print(resultado6)
+#assert tieneMayorIngreso("Portátil", "Smartphone") == True
+
+assert calculaIngresosTotal(ventas) == 612977.4
+resultado7 = calculaIngresosTotal(ventas)
+print(resultado7)
