@@ -74,5 +74,81 @@ def decimalToHexadecimal():
 
     return cadenaHexadecimal
 
-resultado = decimalToHexadecimal()
-print(resultado)
+
+def hexadecimalToDecimal():
+    valido = False
+
+    while valido == False:
+        n = input("Dime un número hexadecimal: ").upper()
+        valido = True
+
+        for c in n:
+            if not (c >= "0" and c <= "9") and not (c >= "A" and c <= "F"):
+                print("ERROR: No es un hexadecimal válido")
+                valido = False
+                break
+
+    resultado = 0
+    posicion = 0
+
+    for i in range(len(n) - 1, -1, -1):
+        c = n[i]
+
+        if c >= "0" and c <= "9":
+            valor = int(c)
+        else:
+            if c == "A":
+                valor = 10
+            elif c == "B":
+                valor = 11
+            elif c == "C":
+                valor = 12
+            elif c == "D":
+                valor = 13
+            elif c == "E":
+                valor = 14
+            elif c == "F":
+                valor = 15
+
+        resultado += valor * (16 ** posicion)
+        posicion += 1
+
+    return resultado
+
+
+def menu():
+    salir = False
+
+    while salir == False:
+        print("----- MENU -----")
+        print("1. Decimal a Binario")
+        print("2. Binario a Decimal")
+        print("3. Decimal a Hexadecimal")
+        print("4. Hexadecimal a Decimal")
+        print("5. Salir")
+
+        opcion = input("Elige una opción: ")
+
+        if opcion == "1":
+            resultado = decimalToBinario()
+            print(resultado)
+
+        elif opcion == "2":
+            resultado = binarioToDecimal()
+            print(resultado)
+
+        elif opcion == "3":
+            resultado = decimalToHexadecimal()
+            print(resultado)
+
+        elif opcion == "4":
+            resultado = hexadecimalToDecimal()
+            print(resultado)
+
+        elif opcion == "5":
+            salir = True
+
+        else:
+            print("Opción no válida")
+
+menu()
