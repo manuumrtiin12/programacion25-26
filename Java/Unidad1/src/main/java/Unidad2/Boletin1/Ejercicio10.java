@@ -1,5 +1,4 @@
-package Unidad2.Boletin1;
-
+package unidad2.unidad1;
 import java.util.Scanner;
 
 public class Ejercicio10 {

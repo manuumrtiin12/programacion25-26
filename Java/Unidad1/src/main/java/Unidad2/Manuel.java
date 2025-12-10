@@ -6,7 +6,7 @@ public class Manuel {
         System.out.println("Mi clase: ");
 
         int num1 = 10;
-        int num2 = 1000;
+        int num2 = 1000; 
         int resultado = num1 + num2;
         System.out.println(resultado);
 
