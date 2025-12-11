@@ -1,4 +1,4 @@
-package unidad2.unidad1;
+package Unidad2.BoletinIF;
 import java.util.Scanner;
 
 public class Ejercicio10 {
@@ -12,16 +12,14 @@ public class Ejercicio10 {
         System.out.print("Dame otro numero: ");
         int numero2 = escaner.nextInt();
 
-        float resultado = (float) numero1/numero2;
+        float resultado = (float) numero1 / numero2;
 
         if (numero2 != 0) {
             System.out.println("El resultado de la division es: " + resultado);
-
-        } else {
+        }
+        else {
             System.out.println("El segundo numero no puede ser cero");
 
         }
-
-
     }
 }

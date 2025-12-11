@@ -16,7 +16,8 @@ public class PruebasTransparencia {
         float numero = 3.12123F;
         double decimalGrande = numero; //Casting Implicito por que NO pierde informacion
         numero = (float) decimalGrande;
-        int entero = (int) numero;
+        int entero = (int) numero; //Casting explicito ya que estamos conviertiendo algo mas grande en mas pequeño
+                                    // y no cabe
 
         Scanner escaner = new Scanner(System.in);
         String cadena = escaner.next(); //Para un string
