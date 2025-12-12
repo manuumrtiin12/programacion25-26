@@ -1,4 +1,4 @@
-package main.java.Unidad2.BoletinMATCH;
+package Unidad2.BoletinMATCH;
 
 import java.util.Scanner;
 
@@ -95,3 +95,5 @@ public class Ejercicio9 {
         }
     }
 }
+
+
