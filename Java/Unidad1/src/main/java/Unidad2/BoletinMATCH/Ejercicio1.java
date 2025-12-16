@@ -1,4 +1,4 @@
-package Unidad2.BoletinMATCH;
+package main.java.Unidad2.BoletinMATCH;
 
 import java.util.Scanner;
 
