@@ -1,4 +1,4 @@
-package main.java.Unidad2.Boletin1Java;
+package Unidad2.Boletin1Java;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class Ejercicio5 {
         System.out.print("El cliente es VIP?: ");
         String esVIP = sc.next();
 
-        if (esVIP == "si") {
+        if (esVIP.equals("si")) {
             System.out.print("Cual a sido el importe de la cuenta?: ");
             int importeCuenta = sc.nextInt();
 
