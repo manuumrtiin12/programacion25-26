@@ -81,6 +81,10 @@ public class Dungeons {
                 }
             }
 
+            int ataqueEnemigo = random.nextInt(5, 15);
+            System.out.println("El monstruo a atacado y te  a echo: " + ataqueEnemigo);
+            heroeHP -= ataqueEnemigo;
+
             System.out.println("1. Ataque Basico");
             System.out.println("2. Ataque Especial");
             System.out.println("3. Curacion");
@@ -95,7 +99,7 @@ public class Dungeons {
         }
 
         else {
-            System.out.println("Enhorabuena " + nombreHeroe + " Eres el vencedor");
+            System.out.println("Enhorabuena " + nombreHeroe + " eres el vencedor");
         }
     }
 }
