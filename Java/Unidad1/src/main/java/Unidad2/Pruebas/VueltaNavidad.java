@@ -27,6 +27,13 @@ public class VueltaNavidad {
             }
         }
 
+        String cadena = "hola";
+        String cadena1 = "adios";
+
+        cadena =cadena.concat(" " + cadena1);
+        System.out.println(cadena);
+
+
 
     }
 }
