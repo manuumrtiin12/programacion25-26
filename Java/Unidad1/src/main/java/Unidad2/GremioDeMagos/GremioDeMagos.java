@@ -1,4 +1,4 @@
-package main.java.Unidad2.GremioDeMagos;
+package Unidad2.GremioDeMagos;
 
 import java.util.Scanner;
 
@@ -28,8 +28,18 @@ public class GremioDeMagos {
     }
 
     public static String cifradoDelConjuro(String conjuro) {
-        
+        String conjuroReverso = "";
+
+        for (int i = conjuro.length() - 1; i >= 0; i--) {
+            conjuroReverso += conjuro.charAt(i);
+        }
+
+        System.out.println("Número total de caracteres: " + conjuro.length());
+        System.out.println("Conjuro al revés: " + conjuroReverso);
+
+        return conjuroReverso;
     }
+
 
     public static void main(String[] args) {
 
@@ -54,6 +64,7 @@ public class GremioDeMagos {
         }
 
         System.out.println("Mensaje sin cifrar: " + conjuro);
+        cifradoDelConjuro(conjuro);
 
     }
 }
