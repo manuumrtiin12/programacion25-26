@@ -1,4 +1,4 @@
-package Unidad2.sosMarte;
+package main.java.Unidad2.sosMarte;
 
 import java.util.Scanner;
 
