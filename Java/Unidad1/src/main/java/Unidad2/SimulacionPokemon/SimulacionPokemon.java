@@ -57,7 +57,7 @@ public class SimulacionPokemon {
 
         System.out.println("Has elegido a: " + nombres[eleccion] + " de nivel " + niveles[eleccion]);
 
-        while (numeroRandom != eleccion) {
+        while (numeroRandom == eleccion) {
             numeroRandom = random.nextInt(0, contador);
         }
 
