@@ -30,7 +30,7 @@ public class Ejercicio10 {
                 contador += 1;
             }
         }
-        
+
         for (int i = 0; i < contador; i++) {
             System.out.print(tablaFinal[i] + " ");
         }
