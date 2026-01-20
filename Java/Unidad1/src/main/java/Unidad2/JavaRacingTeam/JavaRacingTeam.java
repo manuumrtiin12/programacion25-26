@@ -1,6 +1,4 @@
-package Unidad2.JavaRacingTeam;
-
-import Unidad2.SimulacionPokemon.SimulacionPokemon;
+package main.java.Unidad2.JavaRacingTeam;
 
 import java.util.Scanner;
 
@@ -18,10 +16,7 @@ public class JavaRacingTeam {
         System.out.println("=========================");
 
         System.out.print("Que quieres hacer?: ");
-        int eleccionMenu = sc.nextInt();
-
-        return eleccionMenu;
-
+        return sc.nextInt();
     }
 
     public int inizializaEscuderia(String[] nombres, Double[] tiempos, Scanner sc) {
@@ -31,31 +26,26 @@ public class JavaRacingTeam {
         System.out.print("Cuantos pilotos quieres registrar?: ");
         int numPilotos = sc.nextInt();
 
-        for (int i = 0 ; i < numPilotos ; i++){
+        for (int i = 0; i < numPilotos; i++) {
             sc.nextLine();
 
             System.out.print("Nombre del piloto: ");
-            String nombrePiloto = sc.nextLine();
-            nombres[i] = nombrePiloto;
+            nombres[i] = sc.nextLine();
 
-            System.out.print("Cual es el mejor tiempo de " + nombrePiloto + ":");
-            Double tiempoPiloto = sc.nextDouble();
-            tiempos[i] = tiempoPiloto;
+            System.out.print("Cual es el mejor tiempo de " + nombres[i] + ": ");
+            tiempos[i] = sc.nextDouble();
 
             pilotos++;
         }
 
         System.out.println("Registro Completado...");
-
         return pilotos;
     }
 
     public void fortearPilotos(String[] nombres) {
 
         for (int i = 0; i < nombres.length; i++) {
-
             if (nombres[i] != null) {
-
                 nombres[i] = nombres[i].trim().toUpperCase();
 
                 if (nombres[i].length() > 10) {
@@ -66,61 +56,107 @@ public class JavaRacingTeam {
     }
 
     public void verEstadisticas(String[] nombres, Double[] tiempos) {
-        double tiempoMedio = 0;
+
+        double sumaTiempos = 0;
         int cuentaTiempos = 0;
         double mejorTiempo = 0;
         String mejorPiloto = "";
+        boolean primerTiempo = true;
 
-        for (int i = 0 ; i < tiempos.length ; i++) {
-
+        for (int i = 0; i < tiempos.length; i++) {
             if (tiempos[i] != null) {
-                tiempoMedio += tiempos[i];
+                sumaTiempos += tiempos[i];
                 cuentaTiempos++;
 
-                if (tiempos[i] < mejorTiempo) {
+                if (primerTiempo) {
+                    mejorTiempo = tiempos[i];
+                    mejorPiloto = nombres[i];
+                    primerTiempo = false;
+                } else if (tiempos[i] < mejorTiempo) {
                     mejorTiempo = tiempos[i];
                     mejorPiloto = nombres[i];
                 }
             }
         }
 
-        System.out.println("Tiempo medio: " + tiempoMedio/cuentaTiempos);
-        System.out.println("Mejor piloto: " + mejorPiloto + " Tiempo: " + mejorTiempo);
+        if (cuentaTiempos > 0) {
+            System.out.println("Tiempo medio: " + (sumaTiempos / cuentaTiempos));
+            System.out.println("Mejor piloto: " + mejorPiloto + " Tiempo: " + mejorTiempo);
+        } else {
+            System.out.println("No hay tiempos registrados.");
+        }
     }
 
-    public double buscarPiloto()
+    public double buscarPiloto(String[] nombres, Double[] tiempos, Scanner sc) {
 
-    public void main(String[] args) {
+        sc.nextLine();
+        System.out.print("Dime el nombre de a quien quieres buscar: ");
+        String pilotoBuscado = sc.nextLine();
 
+        for (int i = 0; i < nombres.length; i++) {
+            if (nombres[i] != null && nombres[i].equalsIgnoreCase(pilotoBuscado)) {
+                System.out.println("Su marca es: " + tiempos[i]);
+                return tiempos[i];
+            }
+        }
+
+        System.out.println("Piloto no encontrado.");
+        return -1;
+    }
+
+    public void generarIDS(String[] nombres) {
+
+        for (int i = 0; i < nombres.length; i++) {
+            if (nombres[i] != null) {
+
+                String nombre = nombres[i];
+                String prefijo;
+
+                if (nombre.length() >= 3) {
+                    prefijo = nombre.substring(0, 3);
+                } else {
+                    prefijo = nombre;
+                }
+
+                String id = prefijo + "-" + i;
+                System.out.println("Piloto: " + nombre + " -> ID: " + id);
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+
+        JavaRacingTeam app = new JavaRacingTeam();
         Scanner sc = new Scanner(System.in);
 
         String[] nombres = new String[100];
         Double[] tiempos = new Double[100];
 
-        int eleccionMenu = menu(sc);
+        int eleccionMenu = app.menu(sc);
 
         while (eleccionMenu != 6) {
 
             if (eleccionMenu == 1) {
-                inizializaEscuderia(nombres, tiempos, sc);
-            }
+                app.inizializaEscuderia(nombres, tiempos, sc);
+            } else if (eleccionMenu == 2) {
+                app.fortearPilotos(nombres);
 
-            else if (eleccionMenu == 2) {
-                fortearPilotos(nombres);
-
-                for (int i = 0 ; i < nombres.length ; i++) {
-
-                    if (nombres[i] != null) {
-                        System.out.println(nombres[i]);
+                for (String nombre : nombres) {
+                    if (nombre != null) {
+                        System.out.println(nombre);
                     }
                 }
+            } else if (eleccionMenu == 3) {
+                app.verEstadisticas(nombres, tiempos);
+            } else if (eleccionMenu == 4) {
+                app.buscarPiloto(nombres, tiempos, sc);
+            } else if (eleccionMenu == 5) {
+                app.generarIDS(nombres);
             }
 
-            else if (eleccionMenu == 3) {
-                verEstadisticas(nombres, tiempos);
-            }
-
-            eleccionMenu = menu(sc);
+            eleccionMenu = app.menu(sc);
         }
+
     }
 }
