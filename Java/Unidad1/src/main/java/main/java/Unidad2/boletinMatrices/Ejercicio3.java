@@ -63,9 +63,7 @@ public class Ejercicio3 {
         }
 
         System.out.println(
-                "El lugar más seguro es " + refugio +
-                        " posicionado en fila: " + filaRefugio +
-                        " columna: " + columnaRefugio
+                "El lugar más seguro es " + refugio + " posicionado en fila: " + filaRefugio + " columna: " + columnaRefugio
         );
     }
 
