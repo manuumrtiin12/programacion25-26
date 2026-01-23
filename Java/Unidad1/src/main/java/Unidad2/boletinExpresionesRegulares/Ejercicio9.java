@@ -1,4 +1,4 @@
-package main.java.Unidad2.boletinExpresionesRegulares;
+package Unidad2.boletinExpresionesRegulares;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,7 +12,7 @@ public class Ejercicio9 {
                 + "o, alternativamente, a alianzas@partner.org. "
                 + "Finalmente, si necesitas hablar directamente con recursos humanos, puedes escribir a rrhh@empresa.com, indicando en el asunto el motivo de tu mensaje.";
 
-        Pattern patron = Pattern.compile("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}");
+        Pattern patron = Pattern.compile("[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}");
         Matcher matcher = patron.matcher(texto);
 
         String[] emails = new String[10];
