@@ -1,4 +1,4 @@
-package main.java.JavaOrientacionObjeto.Pokemon;
+package main.java.Unidad2.AAOrientacionObjetoPokemon;
 
 public class Pokemon {
 
