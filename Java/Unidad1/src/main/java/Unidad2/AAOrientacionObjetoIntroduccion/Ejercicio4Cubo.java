@@ -1,43 +1,64 @@
-package main.java.Unidad2.AAOrientacionObjetoIntroduccion;
+package Unidad2.AAOrientacionObjetoIntroduccion;
 
 public class Ejercicio4Cubo {
 
-    private double lado;              // en decímetros
-    private double litrosActuales;     // litros dentro del cubo
+    double lado;
+    double litrosActuales;
 
-    public Ejercicio4Cubo(double lado) {
+    double calcularArea() {
+
+        double area = 6 * (this.lado * this.lado);
+        return area;
+    }
+
+    double calcularVolumen() {
+
+        double volumen = this.lado * this.lado * this.lado;
+
+        return volumen;
+    }
+
+    boolean rellenar(double litros) {
+
+        double capacidadMaxima = calcularVolumen();
+        double espacioDisponible = capacidadMaxima - litrosActuales;
+
+        if(litros <= espacioDisponible) {
+            return true;
+        }
+        else {
+            litrosActuales = capacidadMaxima;
+            return false;
+        }
+    }
+
+    boolean vaciar(double litros) {
+
+        if (litros <= 0) {
+            return false;
+        }
+
+        else if (litros <= litrosActuales) {
+            litrosActuales -=litros;
+            return true;
+        }
+
+        else {
+            litrosActuales = 0;
+            return false;
+        }
+    }
+
+    public Ejercicio4Cubo(double lado, double litrosActuales) {
         this.lado = lado;
-        this.litrosActuales = 0;
-    }
-
-    public double calcularArea() {
-        return 6 * lado * lado;
-    }
-
-    public double calcularVolumen() {
-        return lado * lado * lado;
-    }
-
-    public boolean rellenar(double litros) {
-        if (litrosActuales + litros <= calcularVolumen()) {
-            litrosActuales += litros;
-            return true;
-        }
-        return false;
-    }
-
-    public boolean vaciar(double litros) {
-        if (litrosActuales - litros >= 0) {
-            litrosActuales -= litros;
-            return true;
-        }
-        return false;
+        this.litrosActuales = litrosActuales;
     }
 
     @Override
     public String toString() {
-        return "Cubo [lado=" + lado +
+        return "Ejercicio4Cubo{" +
+                "lado=" + lado +
                 ", litrosActuales=" + litrosActuales +
-                ", capacidadMaxima=" + calcularVolumen() + "]";
+                '}';
     }
 }

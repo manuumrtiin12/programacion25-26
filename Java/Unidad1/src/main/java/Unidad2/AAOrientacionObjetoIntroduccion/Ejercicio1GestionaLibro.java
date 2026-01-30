@@ -1,4 +1,4 @@
-package main.java.Unidad2.AAOrientacionObjetoIntroduccion;
+package Unidad2.AAOrientacionObjetoIntroduccion;
 
 public class Ejercicio1GestionaLibro {
 

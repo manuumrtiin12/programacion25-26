@@ -1,4 +1,4 @@
-package main.java.Unidad2.AAOrientacionObjetoIntroduccion;
+package Unidad2.AAOrientacionObjetoIntroduccion;
 
 public class Ejercicio1Libro {
 
@@ -20,11 +20,8 @@ public class Ejercicio1Libro {
 
     @Override
     public String toString() {
-        return "Ejercicio1Libro{" +
-                "isbn='" + isbn + '\'' +
-                ", titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", numPaginas=" + numPaginas +
-                '}';
+        return
+                "titulo='" + titulo + '\'' +
+                ", numPaginas=" + numPaginas;
     }
 }
