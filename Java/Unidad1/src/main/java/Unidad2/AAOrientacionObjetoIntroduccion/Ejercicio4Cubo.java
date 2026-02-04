@@ -1,4 +1,4 @@
-package Unidad2.AAOrientacionObjetoIntroduccion;
+package main.java.Unidad2.AAOrientacionObjetoIntroduccion;
 
 public class Ejercicio4Cubo {
 
