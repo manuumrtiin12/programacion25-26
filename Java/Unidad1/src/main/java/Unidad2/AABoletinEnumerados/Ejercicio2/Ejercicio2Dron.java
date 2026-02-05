@@ -1,18 +1,18 @@
-package main.java.Unidad2.AABoletinEnumerados.Ejercicio2;
+package Unidad2.AABoletinEnumerados.Ejercicio2;
 
 public class Ejercicio2Dron {
 
     int id;
     int bateria;
-    Ejercicio2Estado estado;
     int porcentajeBateria;
     int cargaMaxima;
-    String rutAsignada;
+    Ejercicio2Estado estado;
+    Ejercicio2Ruta rutAsignada;
 
     public void asignarRuta(Ejercicio2Ruta ruta) {
         if (this.estado == Ejercicio2Estado.EN_REPOSO) {
 
-            this.rutAsignada = ruta.toString();
+            this.rutAsignada = ruta;
             this.estado = Ejercicio2Estado.EN_RUTA;
             ruta.estadoPaquete = Ejercicio2EstadoPaquete.EN_REPARTO;
         } else {
@@ -33,7 +33,7 @@ public class Ejercicio2Dron {
         }
     }
 
-    public Ejercicio2Dron(int id, int bateria, Ejercicio2Estado estado, int porcentajeBateria, int cargaMaxima, String rutAsignada) {
+    public Ejercicio2Dron(int id, int bateria, Ejercicio2Estado estado, int porcentajeBateria, int cargaMaxima, Ejercicio2Ruta rutAsignada) {
         this.id = id;
         this.bateria = bateria;
         this.estado = estado;

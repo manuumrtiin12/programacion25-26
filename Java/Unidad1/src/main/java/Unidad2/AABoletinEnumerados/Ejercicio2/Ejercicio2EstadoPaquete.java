@@ -1,4 +1,4 @@
-package main.java.Unidad2.AABoletinEnumerados.Ejercicio2;
+package Unidad2.AABoletinEnumerados.Ejercicio2;
 
 public enum Ejercicio2EstadoPaquete {
 

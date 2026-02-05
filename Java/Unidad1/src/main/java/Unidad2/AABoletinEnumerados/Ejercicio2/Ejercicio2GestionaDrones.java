@@ -1,4 +1,4 @@
-package main.java.Unidad2.AABoletinEnumerados.Ejercicio2;
+package Unidad2.AABoletinEnumerados.Ejercicio2;
 
 public class Ejercicio2GestionaDrones {
     public static void main(String[] args) {
@@ -9,8 +9,8 @@ public class Ejercicio2GestionaDrones {
         Ejercicio2Ruta ruta3 = new Ejercicio2Ruta("Polígono Ind. 4", "Calle Sol 3", 5.0);
 
 
-        Ejercicio2Dron dron1 = new Ejercicio2Dron(101, 5000, Ejercicio2Estado.EN_REPOSO, 80, 10, "Ninguna");
-        Ejercicio2Dron dron2 = new Ejercicio2Dron(102, 5000, Ejercicio2Estado.EN_REPOSO, 100, 10, "Ninguna");
+        Ejercicio2Dron dron1 = new Ejercicio2Dron(101, 5000, Ejercicio2Estado.EN_REPOSO, 80, 10, null);
+        Ejercicio2Dron dron2 = new Ejercicio2Dron(102, 5000, Ejercicio2Estado.EN_REPOSO, 100, 10, null);
 
         System.out.println("--- Estado Inicial ---");
         System.out.println(dron1);
