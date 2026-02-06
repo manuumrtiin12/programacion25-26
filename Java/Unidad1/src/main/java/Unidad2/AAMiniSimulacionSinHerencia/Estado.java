@@ -1,4 +1,4 @@
-package main.java.Unidad2.AAMiniSimulacionSinHerencia;
+package Unidad2.AAMiniSimulacionSinHerencia;
 
 public enum Estado {
 

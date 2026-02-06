@@ -1,4 +1,4 @@
-package main.java.Unidad2.AAMiniSimulacionSinHerencia;
+package Unidad2.AAMiniSimulacionSinHerencia;
 
 public class Coche {
 
@@ -25,7 +25,7 @@ public class Coche {
     public void verificarSiDebeParar(Sensor sensor) {
 
         if (this.estado == Estado.ARRANCADO) {
-            if (sensor.alertaVelocidad() == true) {
+            if (sensor.alertaObstaculo() == true) {
                 System.out.println("Obstaculo acercandose, pare el vehiculo");
             }
         }
