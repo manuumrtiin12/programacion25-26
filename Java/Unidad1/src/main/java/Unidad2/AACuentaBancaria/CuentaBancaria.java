@@ -1,4 +1,4 @@
-package Unidad2.AACuentaBancaria;
+package main.java.Unidad2.AACuentaBancaria;
 
 public class CuentaBancaria {
 
@@ -7,7 +7,52 @@ public class CuentaBancaria {
     private Persona titularCuenta;
     private Persona autorizado;
 
+    public double ingresarDinero(double dinero) {
+        this.saldo += dinero;
 
+        return  this.saldo;
+    }
+
+    public double retirarDinero(double dinero) {
+
+        if (this.saldo >= dinero) {
+            this.saldo -= dinero;
+
+        } else {
+            System.out.println("Saldo insuficiente para retirar " + dinero);
+        }
+        return this.saldo;
+    }
+
+    public boolean importeEsPositivo (double dinero) {
+
+        boolean verificado = false;
+
+        if (dinero >= 0) {
+            verificado = true;
+        }
+
+        return verificado;
+    }
+
+    public void eliminarAutorizado() {
+
+        if (this.autorizado != null) {
+            this.autorizado = null;
+        }
+    }
+
+    public boolean validarTieneAutorizado() {
+
+        if (this.autorizado == null) {
+            return false;
+        }
+
+        else {
+            return true;
+        }
+
+    }
 
     public CuentaBancaria(double saldo, String numeroCuenta, Persona titularCuenta) {
         this.saldo = saldo;
