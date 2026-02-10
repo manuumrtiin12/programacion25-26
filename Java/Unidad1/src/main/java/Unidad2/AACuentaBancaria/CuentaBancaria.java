@@ -1,4 +1,4 @@
-package main.java.Unidad2.AACuentaBancaria;
+package Unidad2.AACuentaBancaria;
 
 public class CuentaBancaria {
 
