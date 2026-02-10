@@ -1,4 +1,4 @@
-package Unidad2.AACuentaBancaria;
+package main.java.Unidad2.AACuentaBancaria;
 
 import java.util.Objects;
 
