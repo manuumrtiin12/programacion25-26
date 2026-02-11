@@ -10,10 +10,21 @@ public class Camion extends Vehiculo {
 
     public String[] getLicencias() {
 
-        String [] licencias = {"licencia1", "licencia2", "licencia3"};
+        if (numPasajeros > 9) {
+            return new String[0]; // No válido con carnet C
+        }
 
-        return licencias;
+        if (tonelajeKilos > 3500 && tonelajeKilos <= 7500) {
+            return new String[]{"C1"};
+        }
+
+        if (tonelajeKilos > 7500) {
+            return new String[]{"C"};
+        }
+
+        return new String[0];
     }
+
 
 
     public Camion(String duenyo, int numPuertas, int numVehiculos, int tonelajeKilos, int numPasajeros, int numEjes) {

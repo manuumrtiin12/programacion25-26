@@ -7,16 +7,19 @@ public class Automovil extends Vehiculo{
     private String calificacionEcologica;
 
 
-    public boolean tienePermisoParaCircular(String ciudad) {
+    public boolean tieneLimitacionParaCircular(String ciudad) {
 
-        boolean puede = false;
-
-        if (ciudad.equals(this.calificacionEcologica)) {
-            puede = true;
+        if (ciudad.equals("Madrid") || ciudad.equals("Barcelona")) {
+            return calificacionEcologica.equals("B") || calificacionEcologica.equals("C");
         }
-        return puede;
 
+        if (ciudad.equals("Valencia") || ciudad.equals("Sevilla")) {
+            return calificacionEcologica.equals("C");
+        }
+
+        return false;
     }
+
 
     public Automovil(String duenyo, int numPuertas, int numVehiculos, String calificacionEcologica) {
         super(duenyo, numPuertas, numVehiculos);
