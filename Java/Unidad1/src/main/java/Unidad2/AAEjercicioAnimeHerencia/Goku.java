@@ -47,7 +47,7 @@ public class Goku extends PersonajeAnime{
         return Objects.hash(super.hashCode(), estaVivo);
     }
 
-     
+
     public String  bntoString() {
         return "Goku{" +
                 "estaVivo=" + isEstaVivo() +

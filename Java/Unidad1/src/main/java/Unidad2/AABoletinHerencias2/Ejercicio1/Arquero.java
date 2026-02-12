@@ -1,4 +1,4 @@
-package main.java.Unidad2.AABoletinHerencias2.Ejercicio1;
+package Unidad2.AABoletinHerencias2.Ejercicio1;
 
 public class Arquero extends Personaje {
 
@@ -14,32 +14,32 @@ public class Arquero extends Personaje {
     @Override
     public boolean esAtacado(Personaje atacante) {
 
-        // El mago siempre puede
+        boolean atacado = false;
+
         if (atacante instanceof Mago) {
-            return true;
+            atacado = true;
         }
 
-        // Caballero sin distancia NO puede
         if (atacante instanceof Caballero) {
-            return false;
+            atacado = false;
         }
 
-        return false;
+        return atacado;
     }
 
     @Override
     public boolean esAtacado(Personaje atacante, int distancia) {
 
-        // Caballero solo si está a menos de 50 metros
+        boolean atacado = false;
+
         if (atacante instanceof Caballero && distancia < 50) {
-            return true;
+            atacado = true;
         }
 
-        // Mago siempre puede
         if (atacante instanceof Mago) {
-            return true;
+            atacado = true;
         }
 
-        return false;
+        return atacado;
     }
 }

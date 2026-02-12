@@ -1,4 +1,4 @@
-package main.java.Unidad2.AABoletinHerencias1;
+package Unidad2.AABoletinHerencias1;
 
 import java.util.Objects;
 
@@ -32,7 +32,7 @@ public class Automovil extends Vehiculo{
                 "calificacionEcologica='" + calificacionEcologica + '\'' +
                 ", duenyo='" + getDuenyo() + '\'' +
                 ", numPuertas=" + getNumPuertas() +
-                ", numVehiculos=" + getNumVehiculos() +
+                ", numVehiculos=" + getNumRuedas() +
                 '}';
     }
 

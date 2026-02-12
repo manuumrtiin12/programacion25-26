@@ -1,4 +1,4 @@
-package main.java.Unidad2.AABoletinHerencias2.Ejercicio1;
+package Unidad2.AABoletinHerencias2.Ejercicio1;
 
 public class GestionaJuego {
 
@@ -37,8 +37,8 @@ public class GestionaJuego {
         System.out.println("Mago atacado por Villano: " + mago.esAtacado(villano));
 
         System.out.println("\n=== Pruebas de ataque CON distancia ===");
-        int distancia1 = 30;   // distancia corta
-        int distancia2 = 120;  // distancia larga
+        int distancia1 = 30;
+        int distancia2 = 120;
 
         // Caballero atacando Arquero
         System.out.println("Arquero atacado por Caballero a 30 mts: " + arquero.esAtacado(caballero, distancia1));

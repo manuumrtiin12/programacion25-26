@@ -1,4 +1,4 @@
-package main.java.Unidad2.AABoletinHerencias1;
+package Unidad2.AABoletinHerencias1;
 
 import java.util.Objects;
 

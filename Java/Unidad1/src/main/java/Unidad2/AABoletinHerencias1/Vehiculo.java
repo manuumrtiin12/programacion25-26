@@ -1,4 +1,4 @@
-package main.java.Unidad2.AABoletinHerencias1;
+package Unidad2.AABoletinHerencias1;
 
 import java.util.Objects;
 
@@ -6,14 +6,14 @@ public class Vehiculo {
 
     private String duenyo;
     private int numPuertas;
-    private int numVehiculos;
+    private int numRuedas;
 
 
 
     public Vehiculo(String duenyo, int numPuertas, int numVehiculos) {
         this.duenyo = duenyo;
         this.numPuertas = numPuertas;
-        this.numVehiculos = numVehiculos;
+        this.numRuedas = numVehiculos;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class Vehiculo {
         return "Vehiculo{" +
                 "duenyo='" + duenyo + '\'' +
                 ", numPuertas=" + numPuertas +
-                ", numVehiculos=" + numVehiculos +
+                ", numVehiculos=" + numRuedas +
                 '}';
     }
 
@@ -41,23 +41,23 @@ public class Vehiculo {
         this.numPuertas = numPuertas;
     }
 
-    public int getNumVehiculos() {
-        return numVehiculos;
+    public int getNumRuedas() {
+        return numRuedas;
     }
 
-    public void setNumVehiculos(int numVehiculos) {
-        this.numVehiculos = numVehiculos;
+    public void setNumRuedas(int numRuedas) {
+        this.numRuedas = numRuedas;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Vehiculo vehiculo = (Vehiculo) o;
-        return numPuertas == vehiculo.numPuertas && numVehiculos == vehiculo.numVehiculos && Objects.equals(duenyo, vehiculo.duenyo);
+        return numPuertas == vehiculo.numPuertas && numRuedas == vehiculo.numRuedas && Objects.equals(duenyo, vehiculo.duenyo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(duenyo, numPuertas, numVehiculos);
+        return Objects.hash(duenyo, numPuertas, numRuedas);
     }
 }

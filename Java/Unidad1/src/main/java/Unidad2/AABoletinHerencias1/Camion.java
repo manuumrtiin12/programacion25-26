@@ -1,4 +1,4 @@
-package main.java.Unidad2.AABoletinHerencias1;
+package Unidad2.AABoletinHerencias1;
 
 import java.util.Objects;
 
@@ -42,7 +42,7 @@ public class Camion extends Vehiculo {
                 ", numEjes=" + numEjes +
                 ", duenyo='" + getDuenyo() + '\'' +
                 ", numPuertas=" + getNumPuertas() +
-                ", numVehiculos=" + getNumVehiculos() +
+                ", numVehiculos=" + getNumRuedas() +
                 '}';
     }
 
