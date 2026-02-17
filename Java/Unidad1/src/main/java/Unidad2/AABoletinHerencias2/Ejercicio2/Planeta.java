@@ -1,25 +1,44 @@
-package main.java.Unidad2.AABoletinHerencias2.Ejercicio2;
-
-import java.util.ArrayList;
+package Unidad2.AABoletinHerencias2.Ejercicio2;
 
 public class Planeta extends Astro {
 
-    private ArrayList<Satelite> satelites;
-
+    private Satelite[] satelites;
 
     public Planeta(String nombre, double masa, double diametro,
                    double periodoRotacion, double periodoTraslacion,
-                   double distanciaMedia) {
+                   double distanciaMedia, int numSatelites) {
+
         super(nombre, masa, diametro, periodoRotacion, periodoTraslacion, distanciaMedia);
-        satelites = new ArrayList<>();
+        this.satelites = new Satelite[numSatelites];
     }
 
-    public ArrayList<Satelite> getSatelites() {
+    public Satelite[] getSatelites() {
         return satelites;
     }
 
-    public void setSatelites(ArrayList<Satelite> satelites) {
-        this.satelites = satelites;
+    public void setSatelite(Satelite satelite, int posicion) {
+        if (posicion >= 0 && posicion < satelites.length) {
+            satelites[posicion] = satelite;
+        }
     }
 
+    @Override
+    public String toString() {
+        return "Planeta: " + getNombre() +
+                " | Masa: " + getMasa() +
+                " | Diámetro: " + getDiametro();
+    }
+
+    @Override
+    public void muestraInformacion() {
+        super.muestraInformacion();
+
+        if (satelites != null) {
+            for (Satelite s : satelites) {
+                if (s != null) {
+                    System.out.println("  -> " + s.toString());
+                }
+            }
+        }
+    }
 }
