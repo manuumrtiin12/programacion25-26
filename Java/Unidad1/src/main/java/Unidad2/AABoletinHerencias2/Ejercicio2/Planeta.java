@@ -1,4 +1,4 @@
-package Unidad2.AABoletinHerencias2.Ejercicio2;
+package main.java.Unidad2.AABoletinHerencias2.Ejercicio2;
 
 public class Planeta extends Astro {
 

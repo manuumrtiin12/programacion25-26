@@ -1,8 +1,8 @@
-package Unidad2.AASimulacion2;
+package main.java.Unidad2.AASimulacion2;
 
 import java.util.Objects;
 
-public class Incidencia {
+public class Incidencia { 
 
     private int id;
     private String nombre;

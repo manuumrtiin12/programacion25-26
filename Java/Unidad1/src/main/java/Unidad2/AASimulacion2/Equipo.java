@@ -1,4 +1,4 @@
-package Unidad2.AASimulacion2;
+package main.java.Unidad2.AASimulacion2;
 
 import java.util.Objects;
 
@@ -8,12 +8,14 @@ public class Equipo {
     private String MAC;
     private String sistemaOperativo;
     private int problemasPendientes = 0;
+    private Usuario usuario;
 
-    public Equipo(String nombre, String MAC, String sistemaOperativo, int problemasPendientes) {
+    public Equipo(String nombre, String MAC, String sistemaOperativo, int problemasPendientes, Usuario usuario) {
         this.nombre = nombre;
         this.MAC = MAC;
         this.sistemaOperativo = sistemaOperativo;
         this.problemasPendientes = problemasPendientes;
+        this.usuario = usuario;
     }
 
     public String getNombre() {
@@ -48,6 +50,14 @@ public class Equipo {
         this.problemasPendientes = problemasPendientes;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -62,6 +72,7 @@ public class Equipo {
 
     @Override
     public String toString() {
-        return getNombre() + " - " + getMAC() + " - " + getProblemasPendientes();
+        return getNombre() + " - " + getMAC() + " - " + getProblemasPendientes()
+                + " - Usuario: " + usuario.getNombre();
     }
 }
