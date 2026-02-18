@@ -1,4 +1,4 @@
-package Unidad2.AASimulacion3;
+package main.java.Unidad2.AASimulacion3;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -11,16 +11,18 @@ public abstract class Mision {
     private String naveAsignada;
     private EstadoMision estado;
 
-    public abstract void misionGeneral();
+    public abstract boolean misionDeRiesgo();
 
     public boolean verificaFecha() {
-
         boolean verificada = false;
-        
-        if (this.fechaLanzamiento )
+
+        if (fechaLanzamiento != null && !fechaLanzamiento.isBefore(LocalDate.now())) {
+            verificada = true;
+        }
 
         return verificada;
     }
+
 
     public Mision(String id, String nombreClave, LocalDate fechaLanzamiento, String naveAsignada, EstadoMision estado) {
         this.id = id;

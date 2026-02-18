@@ -1,4 +1,4 @@
-package Unidad2.AASimulacion2;
+package main.java.Unidad2.AASimulacion2;
 
 import java.time.LocalDate;
 import java.util.Objects;

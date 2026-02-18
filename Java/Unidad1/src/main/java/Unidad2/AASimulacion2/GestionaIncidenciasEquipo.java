@@ -44,10 +44,10 @@ public class GestionaIncidenciasEquipo {
         Equipo equipo3 = new Equipo("Servidor", "AA:BB:CC:DD:03", "Linux", 0, usuario3);
         Equipo equipo4 = new Equipo("PC-Almacén", "AA:BB:CC:DD:04", "Windows", 0, usuario4);
 
-        Incidencia incidencia1 = new Incidencia(1, "Error arranque", "El equipo no arranca", "01/02/2026", null, EstadoIncidencia.REGISTRADA, CriticidadIncidencia.CRITICA, equipo1);
-        Incidencia incidencia2 = new Incidencia(2, "Pantalla azul", "Fallo del sistema", "02/02/2026", null, EstadoIncidencia.ANALIZADA, CriticidadIncidencia.GRAVE, equipo1);
-        Incidencia incidencia3 = new Incidencia(3, "Sin conexión", "No hay acceso a red", "03/02/2026", null, EstadoIncidencia.REGISTRADA, CriticidadIncidencia.MEDIA, equipo2);
-        Incidencia incidencia4 = new Incidencia(4, "Actualización", "Sistema desactualizado", "04/02/2026", null, EstadoIncidencia.REGISTRADA, CriticidadIncidencia.LEVE, equipo3);
+        Incidencia incidencia1 = new Incidencia(1, "Error arranque", "El equipo no arranca", null, null, EstadoIncidencia.REGISTRADA, CriticidadIncidencia.CRITICA, equipo1);
+        Incidencia incidencia2 = new Incidencia(2, "Pantalla azul", "Fallo del sistema", null, null, EstadoIncidencia.ANALIZADA, CriticidadIncidencia.GRAVE, equipo1);
+        Incidencia incidencia3 = new Incidencia(3, "Sin conexión", "No hay acceso a red", null, null, EstadoIncidencia.REGISTRADA, CriticidadIncidencia.MEDIA, equipo2);
+        Incidencia incidencia4 = new Incidencia(4, "Actualización", "Sistema desactualizado", null, null, EstadoIncidencia.REGISTRADA, CriticidadIncidencia.LEVE, equipo3);
 
         GestionaIncidenciasEquipo gestor = new GestionaIncidenciasEquipo();
         gestor.agregarIncidencia(incidencia1);

@@ -1,4 +1,4 @@
-package Unidad2.AASimulacion3;
+package main.java.Unidad2.AASimulacion3;
 
 public enum EstadoMision {
 
