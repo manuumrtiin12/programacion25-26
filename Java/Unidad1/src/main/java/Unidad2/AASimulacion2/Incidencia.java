@@ -1,5 +1,6 @@
-package main.java.Unidad2.AASimulacion2;
+package Unidad2.AASimulacion2;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Incidencia { 
@@ -7,38 +8,45 @@ public class Incidencia {
     private int id;
     private String nombre;
     private String descripcion;
-    private String fechaRegistro;
-    private String fechaSolucion;
-    private EstadoIncidencia Estado;
+    private LocalDate fechaRegistro;
+    private LocalDate fechaSolucion;
+    private EstadoIncidencia estado;
     private CriticidadIncidencia criticidad;
     private Equipo equipo;
 
     public void esUrgente() {
 
-        if (this.criticidad == CriticidadIncidencia.CRITICA) {
-            System.out.println("¡Solucionar incidencia con urgencia! ");
+        LocalDate hoy = LocalDate.now();
+
+        if (criticidad == CriticidadIncidencia.CRITICA) {
+            System.out.println("¡Solucionar incidencia con urgencia!");
+        }
+
+        else if (criticidad == CriticidadIncidencia.GRAVE &&
+                !fechaRegistro.plusDays(7).isAfter(hoy)) {
+
+            System.out.println("¡Solucionar incidencia con urgencia!");
+        }
+
+        else if (criticidad == CriticidadIncidencia.MEDIA &&
+                !fechaRegistro.plusDays(30).isAfter(hoy)) {
+
+            System.out.println("¡Solucionar incidencia con urgencia!");
+        }
+
+        else {
+            System.out.println("La incidencia no es urgente.");
         }
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Incidencia that = (Incidencia) o;
-        return id == that.id && Objects.equals(nombre, that.nombre) && Objects.equals(descripcion, that.descripcion) && Objects.equals(fechaRegistro, that.fechaRegistro) && Objects.equals(fechaSolucion, that.fechaSolucion) && Estado == that.Estado && criticidad == that.criticidad && Objects.equals(equipo, that.equipo);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nombre, descripcion, fechaRegistro, fechaSolucion, Estado, criticidad, equipo);
-    }
-
-    public Incidencia(int id, String nombreEquipo, String descripcion, String fechaRegistro, String fechaSolucion, EstadoIncidencia estado, CriticidadIncidencia criticidad, Equipo equipo) {
+    public Incidencia(int id, String nombreEquipo, String descripcion, LocalDate fechaRegistro, LocalDate fechaSolucion, EstadoIncidencia estado, CriticidadIncidencia criticidad, Equipo equipo) {
         this.id = id;
         this.nombre = nombreEquipo;
         this.descripcion = descripcion;
-        this.fechaRegistro = fechaRegistro;
+        this.fechaRegistro = fechaRegistro.now();
         this.fechaSolucion = fechaSolucion;
-        Estado = estado;
+        this.estado = estado;
         this.criticidad = criticidad;
         this.equipo = equipo;
     }
@@ -67,28 +75,28 @@ public class Incidencia {
         this.descripcion = descripcion;
     }
 
-    public String getFechaRegistro() {
+    public LocalDate getFechaRegistro() {
         return fechaRegistro;
     }
 
-    public void setFechaRegistro(String fechaRegistro) {
+    public void setFechaRegistro(LocalDate fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public String getFechaSolucion() {
+    public LocalDate getFechaSolucion() {
         return fechaSolucion;
     }
 
-    public void setFechaSolucion(String fechaSolucion) {
+    public void setFechaSolucion(LocalDate fechaSolucion) {
         this.fechaSolucion = fechaSolucion;
     }
 
     public EstadoIncidencia getEstado() {
-        return Estado;
+        return estado;
     }
 
     public void setEstado(EstadoIncidencia estado) {
-        Estado = estado;
+        this.estado = estado;
     }
 
     public CriticidadIncidencia getCriticidad() {
@@ -110,5 +118,17 @@ public class Incidencia {
     @Override
     public String toString() {
         return getNombre() + " - Estado: " + getCriticidad() + " - " + getFechaRegistro() + " - " + equipo.getNombre();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Incidencia that = (Incidencia) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

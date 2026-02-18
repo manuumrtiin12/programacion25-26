@@ -1,4 +1,5 @@
-package main.java.Unidad2.AASimulacion2;
+package Unidad2.AASimulacion2;
+
 
 public enum EstadoIncidencia {
 
