@@ -1,6 +1,6 @@
 package main.java.Unidad2.AABoletinHerencias2.Ejercicio2;
 
-public class GestionaAstros {
+public class GestionaAstros1 {
 
     public static void main(String[] args) {
 

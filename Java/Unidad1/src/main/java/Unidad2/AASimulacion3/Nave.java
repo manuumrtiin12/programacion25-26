@@ -1,4 +1,4 @@
-package main.java.Unidad2.AASimulacion3;
+package Unidad2.AASimulacion3;
 
 import java.util.Objects;
 

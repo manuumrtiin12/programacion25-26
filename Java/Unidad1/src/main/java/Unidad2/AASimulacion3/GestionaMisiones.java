@@ -1,10 +1,10 @@
-package main.java.Unidad2.AASimulacion3;
+package Unidad2.AASimulacion3;
 
 import java.time.LocalDate;
 
 public class GestionaMisiones {
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
 
         Nave nave1 = new Nave("N1", "Falcon", 1200);
         Nave nave2 = new Nave("N2", "Orion", 800);
