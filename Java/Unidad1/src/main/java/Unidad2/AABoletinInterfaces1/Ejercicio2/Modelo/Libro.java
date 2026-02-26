@@ -54,4 +54,15 @@ public class Libro extends RecursosPrestar {
     public void setGeneroLiterario(String generoLiterario) {
         this.generoLiterario = generoLiterario;
     }
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "autor='" + getAutor() + '\'' +
+                ", editorial='" + getEditorial() + '\'' +
+                ", generoLiterario='" + getGeneroLiterario() + '\'' +
+                ", unidadesTotales=" + getUnidadesTotales() +
+                ", unidadesPrestadas=" + getUnidadesPrestadas() +
+                '}';
+    }
 }
