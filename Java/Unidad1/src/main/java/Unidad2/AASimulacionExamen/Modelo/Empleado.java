@@ -2,7 +2,7 @@ package main.java.Unidad2.AASimulacionExamen.Modelo;
 
 import java.util.Objects;
 
-public class Empleado {
+public abstract class Empleado implements ActualizaSueldo{
 
     private String dni;
     private String nombre;

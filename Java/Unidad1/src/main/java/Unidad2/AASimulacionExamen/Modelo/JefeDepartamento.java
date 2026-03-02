@@ -2,10 +2,24 @@ package main.java.Unidad2.AASimulacionExamen.Modelo;
 
 import java.util.Objects;
 
-public class JefeDepartamento extends Empleado{
+public class JefeDepartamento extends Empleado {
 
     private int anyosAntiguedad;
 
+    @Override
+    public void ActualizarSueldo(int porcentaje) {
+
+        if (porcentaje >= 0 && porcentaje <= 20){
+            int plus = (getSueldo() * porcentaje) / 100;
+            setSueldo(getSueldo() + plus);
+
+        }
+
+        else {
+            System.out.println("Porcentaje fueera de rango");
+        }
+
+    }
 
     public JefeDepartamento(String dni, String nombre, int sueldo) {
         super(dni, nombre, sueldo);
@@ -38,4 +52,6 @@ public class JefeDepartamento extends Empleado{
                 "anyosAntiguedad=" + anyosAntiguedad +
                 '}';
     }
+
+
 }
