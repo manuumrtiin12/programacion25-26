@@ -1,4 +1,4 @@
-package Unidad2.Boletin1Java;
+package main.java.Unidad2.Boletin1Java;
 
 import java.util.Random;
 import java.util.Scanner;
