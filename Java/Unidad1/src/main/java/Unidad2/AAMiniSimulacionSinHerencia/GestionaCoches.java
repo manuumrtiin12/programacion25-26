@@ -1,4 +1,4 @@
-package Unidad2.AAMiniSimulacionSinHerencia;
+package main.java.Unidad2.AAMiniSimulacionSinHerencia;
 
 public class GestionaCoches {
     public static void main(String[] args) {

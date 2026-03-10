@@ -1,7 +1,6 @@
-package Unidad2.AABoletinEstaticos.Ejercicio1.Controlador;
+package main.java.Unidad2.AABoletinEstaticos.Ejercicio1.Controlador;
 
-import Unidad2.AABoletinEstaticos.Ejercicio1.Modelo.CuentaBancaria;
-import Unidad2.AABoletinEstaticos.Ejercicio1.Modelo.Cliente;
+import main.java.Unidad2.AABoletinEstaticos.Ejercicio1.Modelo.*;
 
 import java.time.LocalDate;
 

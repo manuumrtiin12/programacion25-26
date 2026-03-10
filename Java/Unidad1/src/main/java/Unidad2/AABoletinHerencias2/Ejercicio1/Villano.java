@@ -1,5 +1,4 @@
-package Unidad2.AABoletinHerencias2.Ejercicio1;
-
+package main.java.Unidad2.AABoletinHerencias2.Ejercicio1;
 public class Villano extends Personaje {
 
     public Villano(String nombre, int nivel, int puntosVida) {

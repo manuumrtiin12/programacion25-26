@@ -1,4 +1,4 @@
-package Unidad2.AABoletinEstaticos.Ejercicio1.Modelo;
+package main.java.Unidad2.AABoletinEstaticos.Ejercicio1.Modelo;
 
 import java.time.LocalDate;
 import java.util.Objects;
