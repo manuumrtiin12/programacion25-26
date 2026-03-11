@@ -33,7 +33,7 @@ public class GestionaRecetario {
 
         try {
 
-            recetario.buscar(99); 
+            recetario.buscar(99);
 
         } catch (CocinaException e) {
 
