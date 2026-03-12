@@ -8,6 +8,7 @@ import java.util.Arrays;
 public class Sensor {
 
     private static int contador = 0;
+    private int contadorLectura = 0;
 
     private int id;
     private TipoParametro tipoParametro;
@@ -23,38 +24,35 @@ public class Sensor {
         this.max = max;
         this.min = min;
         this.historial = new Lectura[100];
+
     }
 
     public void registrarLectura(LocalDateTime horaYFecha, double cantidadLeida) throws SensorException {
 
         boolean anomala = false;
 
+        if (!validFechaYHora(horaYFecha)) {
+            throw new SensorException("Detectada una lectura con fecha y hora anterior a la ultima detectada");
+        }
+
         if (cantidadLeida > max || cantidadLeida < min) {
             anomala = true;
         }
 
-        for (int i = 0; i < historial.length; i++) {
+                historial[contadorLectura] = new Lectura(horaYFecha, cantidadLeida, anomala);
+                contadorLectura++;
+    }
 
-            if (historial[i] == null) {
+    private boolean validFechaYHora(LocalDateTime horaYFecha) {
 
-                if (i > 0) {
+        boolean valido = false;
 
-                    LocalDateTime ultimaFecha = historial[i - 1].getHoraYFecha();
 
-                    if (horaYFecha.isBefore(ultimaFecha)) {
-
-                        throw new SensorException(
-                                "Error en sensor " + id +
-                                        " | Fecha nueva: " + horaYFecha +
-                                        " | Última fecha: " + ultimaFecha
-                        );
-                    }
-                }
-
-                historial[i] = new Lectura(horaYFecha, cantidadLeida, anomala);
-                break;
-            }
+        if (contadorLectura == 0 || historial[contadorLectura] != null && historial[contadorLectura].getHoraYFecha() != null && historial[contadorLectura].getHoraYFecha().isAfter(horaYFecha)) {
+            valido = true;
         }
+
+        return valido;
     }
 
     public Lectura[] getHistorial() {
@@ -63,6 +61,14 @@ public class Sensor {
 
     public int getId() {
         return id;
+    }
+
+    public int getContadorLectura() {
+        return contadorLectura;
+    }
+
+    public void setContadorLectura(int contadorLectura) {
+        this.contadorLectura = contadorLectura;
     }
 
     @Override

@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 public class GestionaCiudadInteligente {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FalloCriticoException {
 
         RedSensores red = new RedSensores();
 
@@ -21,20 +21,38 @@ public class GestionaCiudadInteligente {
         red.agregarSensor(s2);
 
         try {
-
             s1.registrarLectura(LocalDateTime.now(), 20);
+
+
+        } catch (SensorException e) {
+            System.out.println("ALERTA SENSOR:");
+            System.out.println(e.getMessage());
+        }
+
+        try {
             s1.registrarLectura(LocalDateTime.now().plusMinutes(1), 60);
 
+        } catch (SensorException e) {
+            System.out.println("ALERTA SENSOR:");
+            System.out.println(e.getMessage());
+        }
+
+        try {
             s2.registrarLectura(LocalDateTime.now(), 40);
 
+        } catch (SensorException e) {
+            System.out.println("ALERTA SENSOR: ");
+            System.out.println(e.getMessage());
+        }
+
+        try {
             s2.registrarLectura(LocalDateTime.now().minusMinutes(5), 30);
 
         } catch (SensorException e) {
-
             System.out.println("ALERTA SENSOR:");
             System.out.println(e.getMessage());
-
         }
+
 
         try {
 
@@ -43,11 +61,6 @@ public class GestionaCiudadInteligente {
         } catch (SensorException e) {
 
             System.out.println("Sensor con problemas:");
-            System.out.println(e.getMessage());
-
-        } catch (FalloCriticoException e) {
-
-            System.out.println("ERROR CRÍTICO DEL SISTEMA");
             System.out.println(e.getMessage());
 
         }
