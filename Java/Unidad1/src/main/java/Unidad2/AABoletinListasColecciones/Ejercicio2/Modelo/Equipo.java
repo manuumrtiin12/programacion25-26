@@ -2,6 +2,7 @@ package main.java.Unidad2.AABoletinListasColecciones.Ejercicio2.Modelo;
 
 import main.java.Unidad2.AABoletinListasColecciones.Ejercicio2.Exception.DeportivosException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -54,9 +55,46 @@ public class Equipo {
     }
 
     public Equipo unionEquipo(Equipo e) {
-        
+
+        List<Alumno> nuevaLista = new ArrayList<>();
+        Equipo nuevoEquipo = new Equipo(this.nombre + "-" + e.nombre, nuevaLista);
+
+        for (Alumno a : this.alumnos) {
+            try {
+                nuevoEquipo.agregarAlumno(a);
+            } catch (DeportivosException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+        for (Alumno a : e.alumnos) {
+            try {
+                nuevoEquipo.agregarAlumno(a);
+            } catch (DeportivosException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+        return nuevoEquipo;
     }
 
+    public Equipo interseccionEquipo(Equipo e) {
+
+        List<Alumno> nuevaLista = new ArrayList<>();
+        Equipo nuevoEquipo = new Equipo(this.nombre + "-" + e.nombre, nuevaLista);
+
+        for (Alumno a : this.alumnos) {
+            if (e.alumnos.contains(a)) {
+                try {
+                    nuevoEquipo.agregarAlumno(a);
+                } catch (DeportivosException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+        }
+
+        return nuevoEquipo;
+    }
 
     public Equipo(String nombre, List<Alumno> alumnos) {
         this.nombre = nombre;
