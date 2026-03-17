@@ -2,7 +2,7 @@ package main.java.Unidad2.AABoletinListasColecciones.Ejercicio2.Modelo;
 
 import java.util.Objects;
 
-public class Alumno {
+public class Alumno implements Comparable {
 
     private String nombre;
     private String DNI;
@@ -46,5 +46,11 @@ public class Alumno {
                 "nombre='" + getNombre() + '\'' +
                 ", DNI='" + getDNI() + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+
+        return 0;
     }
 }

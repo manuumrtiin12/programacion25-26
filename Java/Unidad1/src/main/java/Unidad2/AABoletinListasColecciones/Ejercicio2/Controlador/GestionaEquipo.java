@@ -1,14 +1,19 @@
 package main.java.Unidad2.AABoletinListasColecciones.Ejercicio2.Controlador;
 
+import main.java.Unidad2.AABoletinListasColecciones.Ejercicio1.Modelo.Estudiante;
 import main.java.Unidad2.AABoletinListasColecciones.Ejercicio2.Modelo.Alumno;
 import main.java.Unidad2.AABoletinListasColecciones.Ejercicio2.Modelo.Equipo;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Collection;
 import java.util.List;
 
 public class GestionaEquipo {
 
     public static void main(String[] args) {
+
+        /*
 
         Alumno a1 = new Alumno("Juan", "111A");
         Alumno a2 = new Alumno("Pedro", "222B");
@@ -17,6 +22,7 @@ public class GestionaEquipo {
 
         List<Alumno> lista1 = new ArrayList<>();
         List<Alumno> lista2 = new ArrayList<>();
+
 
         Equipo equipo1 = new Equipo("Equipo1", lista1);
         Equipo equipo2 = new Equipo("Equipo2", lista2);
@@ -42,5 +48,23 @@ public class GestionaEquipo {
         Equipo interseccion = equipo1.interseccionEquipo(equipo2);
         System.out.println("Interseccion de equipos:");
         interseccion.mostrarAlumnos();
+
+         */
+
+        Alumno a1 = new Alumno("Juan", "111A");
+        Alumno a2 = new Alumno("Pedro", "222B");
+        Alumno a3 = new Alumno("Ana", "333C");
+
+        List<Alumno> listaAlumnos = new ArrayList<>();
+
+        listaAlumnos.add(a1);
+        listaAlumnos.add(a2);
+        listaAlumnos.add(a3);
+
+        Collections.sort(listaAlumnos);
+
+        for (Alumno e : listaAlumnos) {
+            System.out.println(e);
+        } 
     }
 }
