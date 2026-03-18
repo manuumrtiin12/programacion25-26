@@ -1,6 +1,4 @@
-package main.java.Unidad2.AABoletinListasColecciones.Ejercicio4.Modelo;
-
-import main.java.Unidad2.AABoletinListasColecciones.Ejercicio3.Modelo.Libro;
+package main.java.Unidad2.AABoletinListasColecciones.Ejercicio3.Modelo;
 
 import java.time.LocalDate;
 import java.util.Objects;

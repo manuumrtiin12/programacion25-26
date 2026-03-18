@@ -4,6 +4,7 @@ import main.java.Unidad2.AABoletinListasColecciones.Ejercicio3.Modelo.*;
 import main.java.Unidad2.AABoletinListasColecciones.Ejercicio3.Exception.BibliotecaException;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
 
 public class GestionaBiblioteca {
@@ -11,8 +12,12 @@ public class GestionaBiblioteca {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+
         ArrayList<Libro> lista = new ArrayList<>();
-        Biblioteca biblioteca = new Biblioteca(lista);
+        LinkedHashSet<Prestamo> setPrestamos = new LinkedHashSet<>();
+
+        RepoPrestamo repo = new RepoPrestamo(setPrestamos);
+        Biblioteca biblioteca = new Biblioteca(lista, repo);
 
         int opcion = -1;
 
@@ -40,6 +45,7 @@ public class GestionaBiblioteca {
             try {
 
                 if (opcion == 1) {
+
                     System.out.print("Título: ");
                     String titulo = sc.nextLine();
 
@@ -54,45 +60,71 @@ public class GestionaBiblioteca {
                     sc.nextLine();
 
                     Libro libro = new Libro(titulo, autor, genero, año, EstadoLibro.LIBRE);
-                    biblioteca.agregarLibro(libro);
+                    biblioteca.getLibros().add(libro);
+
+                    System.out.println("Libro añadido correctamente.");
 
                 } else if (opcion == 2) {
-                    System.out.print("Título del libro a prestar: ");
-                    String titulo = sc.nextLine();
 
-                    biblioteca.prestarLibro(titulo);
-
-                } else if (opcion == 3) {
-                    System.out.print("Título del libro a devolver: ");
-                    String titulo = sc.nextLine();
-
-                    biblioteca.devolverLibro(titulo);
-
-                } else if (opcion == 4) {
-                    biblioteca.mostrarLibros();
-
-                } else if (opcion == 5) {
                     System.out.print("Título del libro: ");
                     String titulo = sc.nextLine();
 
-                    biblioteca.mostrarDetalleLibro(titulo);
+                    System.out.print("Usuario: ");
+                    String usuario = sc.nextLine();
+
+                    Libro libro = biblioteca.buscarLibro(titulo);
+                    biblioteca.prestarLibro(libro, usuario);
+
+                } else if (opcion == 3) {
+
+                    System.out.print("Título del libro: ");
+                    String titulo = sc.nextLine();
+
+                    Libro libro = biblioteca.buscarLibro(titulo);
+                    biblioteca.devolverLibro(libro);
+
+                } else if (opcion == 4) {
+
+                    if (biblioteca.getLibros().size() == 0) {
+                        System.out.println("No hay libros.");
+                    } else {
+                        for (int i = 0; i < biblioteca.getLibros().size(); i++) {
+                            System.out.println(biblioteca.getLibros().get(i));
+                        }
+                    }
+
+                } else if (opcion == 5) {
+
+                    System.out.print("Título del libro: ");
+                    String titulo = sc.nextLine();
+
+                    Libro libro = biblioteca.buscarLibro(titulo);
+
+                    System.out.println(libro);
 
                 } else if (opcion == 6) {
-                    System.out.print("Introduce título o autor: ");
+
+                    System.out.print("Introduce título: ");
                     String texto = sc.nextLine();
 
-                    biblioteca.buscarLibro(texto);
+                    Libro libro = biblioteca.buscarLibro(texto);
+                    System.out.println(libro);
 
                 } else if (opcion == 7) {
+
                     System.out.println("Saliendo del programa...");
 
                 } else {
+
                     System.out.println("Opción inválida.");
+
                 }
 
             } catch (BibliotecaException e) {
                 System.out.println("Error: " + e.getMessage());
             }
         }
+
+        sc.close();
     }
 }

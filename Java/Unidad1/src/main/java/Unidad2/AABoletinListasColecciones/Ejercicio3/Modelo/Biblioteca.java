@@ -2,127 +2,92 @@ package main.java.Unidad2.AABoletinListasColecciones.Ejercicio3.Modelo;
 
 import main.java.Unidad2.AABoletinListasColecciones.Ejercicio3.Exception.BibliotecaException;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Scanner;
 
 public class Biblioteca {
 
-    private ArrayList<Libro> listaLibros;
+    private ArrayList<Libro> libros;
+    private RepoPrestamo repoPrestamos;
 
-    public Biblioteca(ArrayList<Libro> listaLibros) {
-        this.listaLibros = listaLibros;
+    public Biblioteca(ArrayList<Libro> libros, RepoPrestamo repoPrestamos) {
+        this.libros = libros;
+        this.repoPrestamos = repoPrestamos;
     }
 
-    public ArrayList<Libro> getListaLibros() {
-        return listaLibros;
-    }
+    public Libro buscarLibro(String titulo) {
 
-    public void setListaLibros(ArrayList<Libro> listaLibros) {
-        this.listaLibros = listaLibros;
-    }
+        Libro encontrado = null;
 
-    public void agregarLibro(Libro libro) {
-        listaLibros.add(libro);
-        System.out.println("Libro añadido correctamente.");
-    }
-
-    public void prestarLibro(String titulo) {
-        boolean encontrado = false;
-
-        for (int i = 0; i < listaLibros.size(); i++) {
-            if (listaLibros.get(i).getTitulo().equalsIgnoreCase(titulo)) {
-                encontrado = true;
-
-                if (listaLibros.get(i).getEstado() == EstadoLibro.PRESTADO) {
-                    throw new BibliotecaException("El libro ya está prestado.");
-                } else {
-                    listaLibros.get(i).setEstado(EstadoLibro.PRESTADO);
-                    System.out.println("Libro prestado correctamente.");
-                }
+        for (int i = 0; i < libros.size(); i++) {
+            if (libros.get(i).getTitulo().equalsIgnoreCase(titulo)) {
+                encontrado = libros.get(i);
             }
         }
 
-        if (!encontrado) {
-            throw new BibliotecaException("El libro no existe en la biblioteca.");
+        if (encontrado == null) {
+            throw new BibliotecaException("Libro no encontrado.");
         }
+
+        return encontrado;
     }
 
-    public void devolverLibro(String titulo) {
-        boolean encontrado = false;
+    public void prestarLibro(Libro libro, String usuario) {
 
-        for (int i = 0; i < listaLibros.size(); i++) {
-            if (listaLibros.get(i).getTitulo().equalsIgnoreCase(titulo)) {
-                encontrado = true;
+        boolean existe = false;
 
-                if (listaLibros.get(i).getEstado() == EstadoLibro.LIBRE) {
-                    throw new BibliotecaException("El libro ya está disponible.");
-                } else {
-                    listaLibros.get(i).setEstado(EstadoLibro.LIBRE);
-                    System.out.println("Libro devuelto correctamente.");
-                }
+        for (int i = 0; i < libros.size(); i++) {
+            if (libros.get(i).equals(libro)) {
+                existe = true;
             }
         }
 
-        if (!encontrado) {
-            throw new BibliotecaException("El libro no existe en la biblioteca.");
+        if (!existe) {
+            throw new BibliotecaException("El libro no está en la biblioteca.");
         }
+
+        int id = repoPrestamos.getPrestamos().size() + 1;
+
+        Prestamo nuevo = new Prestamo(libro, id, usuario, LocalDate.now());
+
+        repoPrestamos.agregarPrestamo(nuevo);
+
+        System.out.println("Préstamo realizado correctamente.");
     }
 
-    public void mostrarLibros() {
-        if (listaLibros.size() == 0) {
-            System.out.println("No hay libros en la biblioteca.");
-        } else {
-            for (int i = 0; i < listaLibros.size(); i++) {
-                System.out.println(listaLibros.get(i));
-            }
-        }
-    }
+    public void devolverLibro(Libro libro) {
 
-    public void mostrarDetalleLibro(String titulo) {
-        boolean encontrado = false;
-        int disponibles = 0;
-        int prestados = 0;
+        Prestamo encontrado = null;
 
-        for (int i = 0; i < listaLibros.size(); i++) {
-            if (listaLibros.get(i).getTitulo().equalsIgnoreCase(titulo)) {
-                encontrado = true;
+        for (Prestamo p : repoPrestamos.getPrestamos()) {
 
-                if (listaLibros.get(i).getEstado() == EstadoLibro.LIBRE) {
-                    disponibles++;
-                } else {
-                    prestados++;
-                }
-
-                System.out.println("Título: " + listaLibros.get(i).getTitulo());
-                System.out.println("Autor: " + listaLibros.get(i).getAutor());
-                System.out.println("Género: " + listaLibros.get(i).getGenero());
-                System.out.println("Año: " + listaLibros.get(i).getAñoPublicacion());
+            if (p.getLibro().equals(libro)) {
+                encontrado = p;
             }
         }
 
-        if (!encontrado) {
-            throw new BibliotecaException("El libro no existe.");
+        if (encontrado == null) {
+            throw new BibliotecaException("Ese libro no está prestado.");
         }
 
-        System.out.println("Ejemplares disponibles: " + disponibles);
-        System.out.println("Ejemplares prestados: " + prestados);
+        repoPrestamos.getPrestamos().remove(encontrado);
+
+        System.out.println("Libro devuelto correctamente.");
     }
 
-    public void buscarLibro(String texto) {
-        boolean encontrado = false;
+    public ArrayList<Libro> getLibros() {
+        return libros;
+    }
 
-        for (int i = 0; i < listaLibros.size(); i++) {
-            if (listaLibros.get(i).getTitulo().equalsIgnoreCase(texto) ||
-                    listaLibros.get(i).getAutor().equalsIgnoreCase(texto)) {
+    public void setLibros(ArrayList<Libro> libros) {
+        this.libros = libros;
+    }
 
-                System.out.println(listaLibros.get(i));
-                encontrado = true;
-            }
-        }
+    public RepoPrestamo getRepoPrestamos() {
+        return repoPrestamos;
+    }
 
-        if (!encontrado) {
-            System.out.println("No se encontraron libros.");
-        }
+    public void setRepoPrestamos(RepoPrestamo repoPrestamos) {
+        this.repoPrestamos = repoPrestamos;
     }
 }
