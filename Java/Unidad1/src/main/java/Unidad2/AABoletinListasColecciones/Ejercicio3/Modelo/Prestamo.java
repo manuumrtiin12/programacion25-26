@@ -10,11 +10,11 @@ public class Prestamo {
     private String usuario;
     private LocalDate fechaPrestamo;
 
-    public Prestamo(Libro libro, int idPrestamo, String usuario, LocalDate fechaPrestamo) {
+    public Prestamo(Libro libro, int idPrestamo, String usuario, LocalDate now) {
         this.libro = libro;
         this.idPrestamo = idPrestamo;
         this.usuario = usuario;
-        this.fechaPrestamo = fechaPrestamo;
+        this.fechaPrestamo = LocalDate.now();
     }
 
     public Libro getLibro() {
