@@ -13,8 +13,6 @@ public class RepositorioAnimal {
 
     public void updateAnimal(){}
 
-    public void addAnimal
-
 
     public RepositorioAnimal(String nombre, String lugar, int presupuestoAnual, TreeSet<Animal> listaAnimales) {
         this.nombre = nombre;
