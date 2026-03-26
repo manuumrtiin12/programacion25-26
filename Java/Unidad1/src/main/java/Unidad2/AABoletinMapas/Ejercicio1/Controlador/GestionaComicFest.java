@@ -1,6 +1,10 @@
-package main.java.Unidad2.AABoletinColecciones.Ejercicio1.Controlador;
+package main.java.Unidad2.AABoletinMapas.Ejercicio1.Controlador;
 
-import main.java.Unidad2.AABoletinColecciones.Ejercicio1.Modelo.*;
+import main.java.Unidad2.AABoletinMapas.Ejercicio1.Modelo.*;
+import main.java.Unidad2.AABoletinMapas.Ejercicio1.Modelo.Influencer;
+import main.java.Unidad2.AABoletinMapas.Ejercicio1.Modelo.RegistroEntrada;
+import main.java.Unidad2.AABoletinMapas.Ejercicio1.Modelo.TipoEntrada;
+import main.java.Unidad2.AABoletinMapas.Ejercicio1.Modelo.entradaVIP;
 
 import java.time.LocalDate;
 
@@ -42,7 +46,7 @@ public class GestionaComicFest {
 
         registro.confirmarAsistencia("anaYT", "YouTube");
         registro.confirmarAsistencia("carlosYT", "YouTube");
-        registro.confirmarAsistencia("saraYT", "YouTube");   
+        registro.confirmarAsistencia("saraYT", "YouTube");
 
         registro.cancelarAsistencia("elenaIG", "Instagram");
 
@@ -52,5 +56,11 @@ public class GestionaComicFest {
         System.out.println(registro.buscarInfluencer("carlosYT", "YouTube"));
         System.out.println(registro.buscarInfluencer("saraYT", "YouTube"));
         System.out.println(registro.buscarInfluencer("elenaIG", "Instagram"));
+
+        System.out.println("Confirmados:");
+        registro.listarInfluencerConfirmados();
+
+        System.out.println("Cancelados:");
+        registro.listarInfluencerCancelado();
     }
 }

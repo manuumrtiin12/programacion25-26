@@ -1,4 +1,4 @@
-package main.java.Unidad2.AABoletinColecciones.Ejercicio1.Modelo;
+package main.java.Unidad2.AABoletinMapas.Ejercicio1.Modelo;
 
 public enum EstadoEntrada {
 
