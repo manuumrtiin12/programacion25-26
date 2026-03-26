@@ -1,10 +1,6 @@
 package main.java.Unidad2.AABoletinMapas.Ejercicio1.Controlador;
 
 import main.java.Unidad2.AABoletinMapas.Ejercicio1.Modelo.*;
-import main.java.Unidad2.AABoletinMapas.Ejercicio1.Modelo.Influencer;
-import main.java.Unidad2.AABoletinMapas.Ejercicio1.Modelo.RegistroEntrada;
-import main.java.Unidad2.AABoletinMapas.Ejercicio1.Modelo.TipoEntrada;
-import main.java.Unidad2.AABoletinMapas.Ejercicio1.Modelo.entradaVIP;
 
 import java.time.LocalDate;
 
@@ -50,17 +46,16 @@ public class GestionaComicFest {
 
         registro.cancelarAsistencia("elenaIG", "Instagram");
 
-        System.out.println("Después de confirmar/cancelar:");
-
-        System.out.println(registro.buscarInfluencer("anaYT", "YouTube"));
-        System.out.println(registro.buscarInfluencer("carlosYT", "YouTube"));
-        System.out.println(registro.buscarInfluencer("saraYT", "YouTube"));
-        System.out.println(registro.buscarInfluencer("elenaIG", "Instagram"));
-
         System.out.println("Confirmados:");
         registro.listarInfluencerConfirmados();
 
         System.out.println("Cancelados:");
         registro.listarInfluencerCancelado();
+
+        System.out.println("Pendientes:");
+        registro.listarPendientes();
+
+        System.out.println("Top 3 influencers:");
+        registro.top3Influencers();
     }
 }
