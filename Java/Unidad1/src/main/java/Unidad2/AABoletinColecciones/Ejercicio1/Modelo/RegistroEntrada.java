@@ -51,8 +51,4 @@ public class RegistroEntrada {
             entrada.setEstadoEntrada(EstadoEntrada.CANCELADA);
         }
     }
-
-    public void listarConfirmados() {}
-
-
 }
