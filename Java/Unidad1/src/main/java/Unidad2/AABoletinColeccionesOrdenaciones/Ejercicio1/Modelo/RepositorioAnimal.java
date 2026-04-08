@@ -13,8 +13,11 @@ public class RepositorioAnimal {
 
     public void updateAnimal(){}
 
+<<<<<<< HEAD
     //public void addAnimal()
 
+=======
+>>>>>>> 4f5f9b845fe96fc176fb955f58a6447e874ba17e
 
     public RepositorioAnimal(String nombre, String lugar, int presupuestoAnual, TreeSet<Animal> listaAnimales) {
         this.nombre = nombre;
