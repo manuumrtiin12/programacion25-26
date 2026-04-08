@@ -3,16 +3,12 @@ package main.java.Unidad2.AASimulacionExamenMapas.Controlador;
 import main.java.Unidad2.AASimulacionExamenMapas.Modelo.Vehiculo;
 import main.java.Unidad2.AASimulacionExamenMapas.Modelo.RepoVehiculo;
 
-
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 public class GestionaRematriculaciones {
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
 
         Vehiculo v1 = new Vehiculo(
                 "1HGCM82633A123456",
@@ -57,5 +53,22 @@ public class GestionaRematriculaciones {
         repo.addVehiculo(v3);
         repo.addVehiculo(v4);
 
+        System.out.println("=== Buscar por número de bastidor ===");
+        List<Vehiculo> listaBastidor = repo.buscarNumeroBastidor(v1);
+        for (Vehiculo v : listaBastidor) {
+            System.out.println(v);
+        }
+
+        System.out.println("=== Vehículos de Juan Pérez ordenados por matrícula ===");
+        List<Vehiculo> listaPropietario = repo.mostrarVehiculosPorPropietario("Juan Pérez");
+        for (Vehiculo v : listaPropietario) {
+            System.out.println(v);
+        }
+
+        System.out.println("=== Rematriculaciones del bastidor 1HGCM82633A123456 ===");
+        List<Vehiculo> rematriculaciones = repo.mostrarRematriculacionesPorVehiculo("1HGCM82633A123456");
+        for (Vehiculo v : rematriculaciones) {
+            System.out.println(v);
+        }
     }
 }
