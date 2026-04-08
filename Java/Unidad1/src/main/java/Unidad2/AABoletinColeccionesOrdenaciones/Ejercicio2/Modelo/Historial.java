@@ -9,27 +9,44 @@ public class Historial {
 
     private ArrayList<PaginaWeb> paginas;
 
+    public Historial() {
+        paginas = new ArrayList<>();
+    }
+
     public void agregarPaginaWeb(PaginaWeb p) {
 
         if (p.getFecha().isAfter(LocalDate.now())) {
-
-            throw new HistorialException("La fecha es despues del registro actual");
+            throw new HistorialException("No se permiten fechas futuras");
         }
 
-        else {
-            paginas.add(p);
-        }
+        paginas.add(p);
+
+        paginas.sort((p1, p2) -> p1.getFecha().compareTo(p2.getFecha()));
     }
 
     public void consultarHistorial() {
-
         for (PaginaWeb pagina : paginas) {
-            System.out.println(pagina.toString());
+            System.out.println(pagina);
         }
-
     }
 
-    
+    public void historialPorDia(LocalDate fecha) {
+        for (PaginaWeb p : paginas) {
+            if (p.getFecha().equals(fecha)) {
+                System.out.println(p);
+            }
+        }
+    }
 
+    public void buscarPorUrl(String url) {
+        for (PaginaWeb p : paginas) {
+            if (p.getUrl().equalsIgnoreCase(url)) {
+                System.out.println(p);
+            }
+        }
+    }
 
+    public void borrarPorUrl(String url) {
+        paginas.removeIf(p -> p.getUrl().equalsIgnoreCase(url));
+    }
 }

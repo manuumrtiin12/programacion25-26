@@ -13,6 +13,8 @@ public class PaginaWeb {
 
         if (fecha == null) {
             this.fecha = LocalDate.now();
+        } else {
+            this.fecha = fecha;
         }
     }
 
@@ -34,9 +36,11 @@ public class PaginaWeb {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        PaginaWeb paginaWeb = (PaginaWeb) o;
-        return Objects.equals(url, paginaWeb.url) && Objects.equals(fecha, paginaWeb.fecha);
+        if (this == o) return true;
+        if (!(o instanceof PaginaWeb)) return false;
+        PaginaWeb that = (PaginaWeb) o;
+        return Objects.equals(url, that.url) &&
+                Objects.equals(fecha, that.fecha);
     }
 
     @Override
