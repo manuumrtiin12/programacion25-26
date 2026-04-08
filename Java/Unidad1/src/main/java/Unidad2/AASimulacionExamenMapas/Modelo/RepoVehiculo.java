@@ -30,9 +30,8 @@ public class RepoVehiculo {
         return mapaVehiculos.get(vehiculo.getNumeroBastidor());
     }
 
-    public List<Vehiculo> mostrarVehiculosPorPropietario() {
+    //public List<Vehiculo> mostrarVehiculosPorPropietario() {}
 
-        
 
-    }
+
 }
