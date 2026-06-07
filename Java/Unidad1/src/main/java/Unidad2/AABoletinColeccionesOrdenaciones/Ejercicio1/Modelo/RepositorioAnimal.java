@@ -1,4 +1,4 @@
-package main.java.Unidad2.AABoletinColeccionesOrdenaciones.Ejercicio1.Modelo;
+/*package main.java.Unidad2.AABoletinColeccionesOrdenaciones.Ejercicio1.Modelo;
 
 import java.util.Objects;
 import java.util.TreeSet;
@@ -80,3 +80,4 @@ public class RepositorioAnimal {
                 '}';
     }
 }
+*/

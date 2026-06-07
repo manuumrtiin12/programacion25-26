@@ -30,7 +30,6 @@ public class Historial {
         }
     }
 
-<<<<<<< HEAD
     public void historialPorDia(LocalDate fecha) {
         for (PaginaWeb p : paginas) {
             if (p.getFecha().equals(fecha)) {
@@ -38,9 +37,6 @@ public class Historial {
             }
         }
     }
-=======
-
->>>>>>> 4f5f9b845fe96fc176fb955f58a6447e874ba17e
 
     public void buscarPorUrl(String url) {
         for (PaginaWeb p : paginas) {

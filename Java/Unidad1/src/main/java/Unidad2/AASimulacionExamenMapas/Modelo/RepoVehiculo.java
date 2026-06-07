@@ -1,4 +1,4 @@
-package main.java.Unidad2.AASimulacionExamenMapas.Modelo;
+/*package main.java.Unidad2.AASimulacionExamenMapas.Modelo;
 
 import java.util.*;
 
@@ -30,14 +30,12 @@ public class RepoVehiculo{
 
         return mapaVehiculos.get(vehiculo.getNumeroBastidor());
     }
-
-<<<<<<< HEAD
     //public List<Vehiculo> mostrarVehiculosPorPropietario() {}
 
 
 
 }
-=======
+
     public List<Vehiculo> mostrarVehiculosPorPropietario(String propietario) {
 
         List<Vehiculo> resultado = new ArrayList<>();
@@ -63,7 +61,7 @@ public class RepoVehiculo{
 
     public List<Vehiculo> mostrarRematriculacionesPorVehiculo(String numeroBastidor) {
 
-        List<Vehiculo> lista = mapaVehiculos.get(numeroBastidor);
+        List<Vehiculo> lista = lista.get(numeroBastidor);
 
         if (lista == null) {
             return new ArrayList<>();
@@ -79,4 +77,6 @@ public class RepoVehiculo{
 
         return resultado;
     }}
->>>>>>> 87dbe9b6d6bb25990deace1d055f418b52ab1d98
+
+
+ */
